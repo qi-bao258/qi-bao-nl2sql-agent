@@ -1,9 +1,11 @@
 [project]
 name = "shopkeeper-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "基于 LangGraph 的 NL2SQL 电商问数智能体：元数据知识库 + 字段指标取值混合检索 + SQL 生成校验执行闭环"
 readme = "README.md"
-requires-python = ">=3.14"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
 dependencies = [
     "asyncmy>=0.2.14",
     "cryptography>=46.0.7",
@@ -32,7 +34,7 @@ dev = [
 
 [tool.ruff]
 line-length = 88
-target-version = "py314"
+target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]

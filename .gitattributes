@@ -1,0 +1,11 @@
+# 声明二进制文件，避免 Git 对其做行尾转换或文本 diff
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.zip binary
+*.bin binary
+*.pt binary
+*.pth binary
+*.onnx binary

@@ -60,3 +60,15 @@ Thumbs.db
 
 # Local TEI embedding model files (large)
 docker/embedding/
+
+# Frontend uses pnpm only (package.json declares packageManager)
+package-lock.json
+
+# Local logs and tool caches
+*.log
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# Local Python version pin (developers choose their own, see requires-python)
+.python-version

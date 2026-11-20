@@ -4,11 +4,11 @@ services:
     container_name: mysql
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: dili123
-      MYSQL_USER: didilili
-      MYSQL_PASSWORD: dili123
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-change_me_root}
+      MYSQL_USER: ${DB_USER:-shopkeeper}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-change_me_local_only}
     ports:
-      - "3306:3306"
+      - "${DB_PORT:-3306}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./mysql:/docker-entrypoint-initdb.d
