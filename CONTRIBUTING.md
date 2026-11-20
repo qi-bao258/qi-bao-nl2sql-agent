@@ -1,20 +1,16 @@
 # 贡献指南
 
-感谢关注本项目。这是一个面向学习与作品展示的完整可运行项目，欢迎通过 Issue 或 Pull Request 参与改进。
+感谢关注本项目。这是一个完整可运行的项目，欢迎通过 Issue 或 Pull Request 参与改进。
 
 ## 本地开发
 
-环境准备与启动步骤见 [README 快速开始](README.md#quick-start)。开始修改前建议先跑通完整链路，确保基线可用：
+环境准备与启动步骤见 [README 快速开始](README.md#quick-start)。**所有改动请基于 `main` 提交。** 开始修改前建议先跑通完整链路，确保基线可用：
 
 ```bash
 uv sync
 # 启动 Docker 基础服务并构建元数据知识库，见 README 第 6~7 步
 uv run python -m app.scripts.build_meta_knowledge -c conf/meta_config.yaml
 ```
-
-## 分支说明
-
-仓库保留 `NN-xxx` 形式的分支，用于对照教程章节查看代码演进过程。**`main` 是唯一的完整版本，所有改动请基于 `main` 提交。**
 
 ## 提交前检查
 
