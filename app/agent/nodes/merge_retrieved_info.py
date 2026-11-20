@@ -38,7 +38,7 @@ async def merge_retrieved_info(
 
         meta_mysql_repository = runtime.context["meta_mysql_repository"]
 
-        # 本节点的主线是：
+        # 合并策略：
         # 字段召回 + 指标依赖字段 + 字段真实取值 + 主外键补齐
         # -> table_infos / metric_infos，交给后续过滤和 SQL 生成节点继续使用。
 
