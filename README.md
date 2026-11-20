@@ -1,47 +1,27 @@
 <div align='center'>
   <h1 style="margin-top: 15px;">「电商问数」智能数据分析 Agent</h1>
-  <h4><b>shopkeeper-agent</b></h4>
-  <p><em>可能是全网最适合用于系统学习 LangGraph 的智能问数实战项目，配套系统性文字教程与对应章节分支，带你打通混合检索、多阶段推理、SQL 生成与执行全链路</em></p>
+  <h4><b>qi-bao-nl2sql-agent</b></h4>
+  <p><em>基于 LangGraph 的 NL2SQL 智能问数系统：元数据知识库 + 字段/指标/取值混合检索 + 多阶段推理 + SQL 生成校验执行全链路</em></p>
 </div>
 
 <div align='center'>
 
 ![AI](https://img.shields.io/badge/AI-Agent-00c853?style=flat)
-![Python](https://img.shields.io/badge/Python-3.14-3776AB.svg?logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB.svg?logo=python&logoColor=white)
 ![LangGraph](https://img.shields.io/badge/LangGraph-Agentic%20Workflow-1C3C3C.svg)
-![Stars](https://img.shields.io/github/stars/didilili/shopkeeper-agent?logo=github&style=flat)
-[![Read Online](https://img.shields.io/badge/在线教程-点击访问-blue?logo=bookstack)](https://didilili.github.io/ai-agents-from-zero/#/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE-%E7%94%B5%E5%95%86%E9%97%AE%E6%95%B0/0-%E5%89%8D%E8%A8%80)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-[快速开始](#quick-start) • [项目亮点](#features) • [系统架构](#architecture) • [配套教程](#tutorials) • [面试题库](#mianstack) • [加入社群](#community)
-
-  <p>
-    <a href="https://didilili.github.io/ai-agents-from-zero/#/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE-%E7%94%B5%E5%95%86%E9%97%AE%E6%95%B0/0-%E5%89%8D%E8%A8%80">📚 在线阅读</a>
-  </p>
+[快速开始](#quick-start) • [项目介绍](#project-introduction) • [项目亮点](#features) • [系统架构](#architecture) • [项目结构](#structure) • [配套教程](#tutorials) • [常见问题](#faq) • [来源与许可](#license)
 
 </div>
 
-**📢 说明**：本套实战项目已更新完成，配套教程、章节分支和前后端代码均可对照学习。
+**📢 说明**：这是一个可以直接跑起来的完整项目，不是只调用一次大模型接口的 Demo。
 
-如果你正在找一个适合学习 `LangGraph`、`Qdrant`、`MySQL`、`FastAPI` 和 AI Agent 工程开发的实战项目，「电商问数」很可能是最适合你的项目。
+它围绕电商数仓问数场景，先构建元数据知识库，再做字段、指标、字段取值的混合检索，随后用 `LangGraph` 编排多阶段问数流程，完成 SQL 生成、校验、修正、执行和前端流式展示。换句话说，这里覆盖的是 AI 应用从数据准备、检索增强、智能体编排、接口交付到前端联调的完整工程主线。
 
-它不是只调用一次大模型接口，也不是写几个 Prompt 演示 SQL 生成结果。这个项目围绕电商数仓问数场景，先构建元数据知识库，再做字段、指标、字段取值的混合检索，随后用 LangGraph 编排多阶段问数流程，完成 SQL 生成、校验、修正、执行和前端流式展示。换句话说，你学到的不是某一个框架 API，而是一条 AI 应用从数据准备、检索增强、智能体编排、接口交付到前端联调的完整项目主线。
-
-> 本套仓库是 [ai-agents-from-zero](https://github.com/didilili/ai-agents-from-zero) 教程体系中的 [实战项目-电商问数](https://github.com/didilili/ai-agents-from-zero/tree/main/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE-%E7%94%B5%E5%95%86%E9%97%AE%E6%95%B0) 配套源码仓库，除了可直接运行和二次开发的项目代码之外，也提供了与教程章节对应的 Git 分支演进过程，以及完整的在线图文讲义入口。
-> 如果你想系统学习「AI智能体 大模型应用开发」，也可直接从系统教程 [AI 智能体实战速成指南-大模型入门](https://didilili.github.io/ai-agents-from-zero/#/) 开始。
+> **来源与改编说明**：本项目为学习实践项目，思路与初始版本来源于 [ai-agents-from-zero](https://github.com/didilili/ai-agents-from-zero) 教程体系中的 [实战项目-电商问数](https://github.com/didilili/ai-agents-from-zero/tree/main/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE-%E7%94%B5%E5%95%86%E9%97%AE%E6%95%B0)，业务原型参考自尚硅谷「大模型智能体掌柜问数」课程。本仓库在其基础上对配置管理、文档结构与开源工程化做了调整。原始代码版权归原作者所有，遵循 MIT 协议，详见 [来源与许可](#license)。
 
 ![电商问数前端首页：样例问题、自然语言输入和智能数据分析 Agent 界面](docs/images/shopkeeper-agent-home.jpg)
-
-<a id="mianstack"></a>
-
-## 🎯 面栈 MianStack｜程序员面试题库天花板
-
-把「电商问数」写进简历，再把技术亮点讲清楚。**打造全网最有价值的面试题库！**
-
-- **简历有示例**：从项目描述、技术栈到主要工作，参考业务场景，提炼自己实际完成的技术亮点。
-- **项目有拆解**：对照架构、选型与源码，准备 NL2SQL、检索增强与 LangGraph 的项目追问。
-- **备考有重点**：真实面经关联高频题，结合原理、代码与图解，理清答题思路。
-
-👉 **[在线刷题](https://mianstack.com/)** · **[电商问数：简历示例与面试题](https://mianstack.com/project/shopkeeper-agent/)** · **[GitHub 开源仓库，欢迎 Star ⭐](https://github.com/didilili/mianstack)**
 
 <a id="project-introduction"></a>
 
@@ -73,8 +53,8 @@
     - 不停留在 Prompt 设计，而是会真实生成 SQL、执行查询，并以流式方式返回结果。
 - **工程化后端结构清晰**
     - 基于 `FastAPI + LangGraph + Repository + Client Manager` 组织配置、客户端、仓储层、服务层与智能体流程，便于维护和扩展。
-- **不仅有实战代码，还有完整配套教程文档**
-    - 项目配有一套系统化、持续更新、完全免费的教程讲义，适合按章节从数仓基础、元数据知识库到问数智能体流程逐步学习。
+- **可按章节对照学习**
+    - 原作者提供了与该流程对应的系统化免费讲义，可按「数仓基础 → 元数据知识库 → 问数智能体」的顺序逐段对照源码，入口见 [配套教程](#tutorials)。
 - **兼顾学习价值与可扩展性**
     - 既可以按教程章节逐步理解，也可以在此基础上继续扩展权限控制、SQL 审核、结果可视化等能力。
 
@@ -117,10 +97,12 @@
 | 日志追踪   | `ContextVar` / `loguru`           | 为并发请求注入 request_id，便于排查链路        |
 | 依赖管理   | `uv` / `pnpm`                     | 管理 Python 后端和前端依赖                     |
 
+<a id="structure"></a>
+
 ## 📁 项目结构
 
 ```text
-shopkeeper-agent/
+qi-bao-nl2sql-agent/
 ├── app/
 │   ├── agent/            # LangGraph 图、状态、上下文和各类节点
 │   ├── api/              # FastAPI 路由、依赖注入、生命周期和请求结构
@@ -135,8 +117,11 @@ shopkeeper-agent/
 │   └── services/         # 元数据构建服务和问数查询服务
 ├── conf/                 # app_config.yaml、meta_config.yaml
 ├── docker/               # Docker Compose、MySQL 初始化 SQL、ES 插件、Embedding 挂载目录
+├── docs/images/          # README 引用的架构图与界面截图
+├── examples/             # 独立可运行的小示例（如 Qdrant 快速入门）
 ├── frontend/             # React + Vite + Tailwind CSS 前端项目
 ├── prompts/              # SQL 生成、修正、过滤等 Prompt 模板
+├── .env.example          # 环境变量模板（大模型 Key 与数据库连接）
 ├── main.py               # FastAPI 应用入口
 └── pyproject.toml        # Python 项目依赖与工具配置
 ```
@@ -149,16 +134,21 @@ shopkeeper-agent/
 
 ### 1. 准备环境
 
-- Python `>= 3.14`
-- `uv`
-- Docker 与 Docker Compose
-- Node.js 与 `pnpm`
+| 依赖 | 版本要求 | 说明 |
+| --- | --- | --- |
+| Python | `>= 3.12` | 开发与验证环境为 3.14.3 |
+| uv | 最新稳定版 | Python 依赖管理 |
+| Docker + Compose | 支持 `compose` 子命令 | 运行 MySQL / Elasticsearch / Qdrant / TEI |
+| Node.js | `>= 18` | 前端构建 |
+| pnpm | `>= 9` | 前端依赖管理（无 pnpm 时可用 npm 代替） |
+
+> 首次启动需要拉取约 1.5 GB 镜像，并额外下载 1.3 GB 嵌入模型，请预留磁盘空间与下载时间。
 
 ### 2. 克隆项目
 
 ```bash
-git clone https://github.com/didilili/shopkeeper-agent.git
-cd shopkeeper-agent
+git clone https://github.com/qi-bao258/qi-bao-nl2sql-agent.git
+cd qi-bao-nl2sql-agent
 ```
 
 ### 3. 安装后端依赖
@@ -167,56 +157,99 @@ cd shopkeeper-agent
 uv sync
 ```
 
-### 4. 配置大模型 API Key
+### 4. 配置环境变量
 
 ```bash
 cp .env.example .env
 ```
 
-把 `.env` 中的 `LLM_API_KEY` 替换成真实密钥：
+编辑 `.env`，至少填写大模型 Key：
 
 ```bash
 LLM_API_KEY=your_real_api_key
 ```
 
-默认配置使用兼容 OpenAI 接口的硅基流动服务：
+`.env` 同时被两处读取：后端通过 `python-dotenv` 加载（`app/conf/app_config.py`），Docker Compose 通过 `--env-file` 加载。因此数据库账号与端口**只维护这一份**，两端自动一致。
+
+| 变量 | 默认值 | 用途 |
+| --- | --- | --- |
+| `LLM_API_KEY` | 无 | 大模型 API Key，必填 |
+| `DB_HOST` | `localhost` | 后端连接 MySQL 的主机 |
+| `DB_PORT` | `3306` | 后端连接端口，同时作为容器端口映射 |
+| `DB_USER` | `shopkeeper` | 应用数据库账号 |
+| `DB_PASSWORD` | `change_me_local_only` | 应用数据库口令 |
+| `MYSQL_ROOT_PASSWORD` | `change_me_root` | 容器 root 口令，仅容器初始化使用 |
+
+> 以上默认口令仅用于本地教学环境，请勿用于公网或生产部署。
+
+默认对接硅基流动，配置位于 `conf/app_config.yaml`：
 
 ```yaml
 llm:
-    model_name: Pro/zai-org/GLM-5.1
-    api_key: ${oc.env:LLM_API_KEY}
-    base_url: https://api.siliconflow.cn/v1
+  model_name: zai-org/GLM-5.3
+  api_key: ${oc.env:LLM_API_KEY}
+  base_url: https://api.siliconflow.cn/v1
 ```
 
-如需使用其他兼容 OpenAI API 的模型平台，修改 [conf/app_config.yaml](conf/app_config.yaml) 中的 `model_name` 和 `base_url`。
+如需使用其他兼容 OpenAI 接口的平台，修改 `model_name` 与 `base_url` 即可。若报 `Model disabled`，说明该模型已被上游下线，可用 `GET /v1/models` 查询当前账号可用的模型名。
 
 ### 5. 准备 Embedding 模型
 
-项目通过 `TEI` 加载 `BAAI/bge-large-zh-v1.5`。模型文件体积较大，无法再仓库中进行提交，需要先下载到 Docker 挂载目录：
+`TEI` 容器需要加载 `BAAI/bge-large-zh-v1.5`。模型目录体积约 1.3 GB（其中 `pytorch_model.bin` 单文件 1.2 GB），已通过 `.gitignore` 排除，不会随仓库分发，需自行下载到挂载路径：
 
 ```bash
 uv run hf download BAAI/bge-large-zh-v1.5 --local-dir docker/embedding/bge-large-zh-v1.5
 ```
 
-如果手动下载，请解压到：`docker/embedding/bge-large-zh-v1.5`路径下。
+国内网络直连 `huggingface.co` 容易超时，使用镜像站：
+
+```bash
+HF_ENDPOINT=https://hf-mirror.com uv run hf download BAAI/bge-large-zh-v1.5 --local-dir docker/embedding/bge-large-zh-v1.5
+```
+
+Windows PowerShell 写法：
+
+```powershell
+$env:HF_ENDPOINT = "https://hf-mirror.com"
+uv run hf download BAAI/bge-large-zh-v1.5 --local-dir docker/embedding/bge-large-zh-v1.5
+```
+
+下载完成后确认目录中存在 `config.json` 与 `pytorch_model.bin`。缺少 `config.json` 时，`embedding` 容器会因 `config.json not found` 反复重启。
 
 ### 6. 启动 Docker 基础服务
 
 ```bash
-docker compose -f docker/docker-compose.yaml up -d
+docker compose -f docker/docker-compose.yaml --env-file .env up -d --build
 ```
+
+> `--env-file .env` 不可省略。Compose 的 project directory 是 `docker/`，默认只读 `docker/.env`；不加该参数时，端口与数据库账号会回落到默认值，与 `.env` 里的配置不一致。
 
 默认端口：
 
-| 服务          | 端口   |
-| ------------- | ------ |
-| MySQL         | `3306` |
-| Elasticsearch | `9200` |
-| Kibana        | `5601` |
-| Qdrant        | `6333` |
-| Embedding     | `8081` |
+| 服务          | 宿主端口 | 说明 |
+| ------------- | -------- | ---- |
+| MySQL         | `3306`   | 可用 `DB_PORT` 覆盖 |
+| Elasticsearch | `9200`   | 单节点，关闭安全认证 |
+| Kibana        | `5601`   | 可选，用于查看索引 |
+| Qdrant        | `6333`   | HTTP，`6334` 为 gRPC |
+| Embedding     | `8081`   | TEI，CPU 模式 |
 
-> `docker/mysql/meta.sql` 和 `docker/mysql/dw.sql` 会在 MySQL 容器首次启动时自动初始化元数据库和教学数仓。
+`docker/mysql/meta.sql` 与 `dw.sql` 只在 **MySQL 数据卷为空时**执行。若复用了旧数据卷，初始化会被跳过，`meta` 库可能不存在，表现为第 7 步构建时报错。此时先清理数据卷再重建：
+
+```bash
+docker compose -f docker/docker-compose.yaml --env-file .env down -v
+docker compose -f docker/docker-compose.yaml --env-file .env up -d
+```
+
+> `down -v` 会同时删除 MySQL、Elasticsearch、Qdrant 的数据卷，仅用于本地重置。
+
+`embedding` 服务首次启动需要预热模型，CPU 环境下约 1~2 分钟。预热期间 `8081` 端口能建立 TCP 连接但不返回响应，属正常现象，不是服务挂死。确认就绪：
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:8081/health
+```
+
+返回 `200` 后再继续下一步。
 
 ### 7. 构建元数据知识库
 
@@ -262,7 +295,9 @@ pnpm install
 pnpm dev
 ```
 
-前端默认通过 Vite 代理把 `/api` 转发到 `http://127.0.0.1:8000`。如需修改：
+页面地址：`http://127.0.0.1:5173`。
+
+前端通过 Vite 代理把 `/api` 转发到后端，默认目标为 `http://127.0.0.1:8000`。若后端换了端口（例如 8000 被其他服务占用后改用 8001），修改前端环境变量：
 
 ```bash
 cd frontend
@@ -270,18 +305,24 @@ cp .env.example .env
 ```
 
 ```bash
-VITE_DEV_PROXY_TARGET=http://127.0.0.1:8000
+VITE_DEV_PROXY_TARGET=http://127.0.0.1:8001
 ```
 
-<a id="community"></a>
+> 前端以 pnpm 为唯一包管理器（`package.json` 已声明 `packageManager`）。混用 npm 会额外生成 `package-lock.json`，与 `pnpm-lock.yaml` 冲突。
 
-## 💬 加入社群
+<a id="faq"></a>
 
-想和更多朋友聊聊 **AI 编程、Vibe Coding、面试经验，顺便 吹水唠嗑、吐槽老板**？欢迎加入「**全宇宙最有爱的 AI Agent 交流群 —— 胡思妙想研究所**」！🎉
+## ❓ 常见问题
 
-👉 [猛击这里！申请入所](https://github.com/didilili/ai-agents-from-zero/issues/46)：在申请帖留言，并按帖内说明添加微信。
-
-愿我们在这里少一点焦虑，多一点灵感；少一点单打独斗，多一点一起胡思妙想～
+| 现象 | 原因 | 处理 |
+| --- | --- | --- |
+| `bind: Only one usage of each socket address` | 宿主 3306 已被本机 MySQL 服务占用 | 在 `.env` 设 `DB_PORT=13306`，容器映射与后端连接会同步变化 |
+| 构建元数据时报 `Unknown database 'meta'` | 复用了非空 MySQL 数据卷，initdb 脚本被跳过 | `docker compose -f docker/docker-compose.yaml --env-file .env down -v` 后重新 `up -d` |
+| `embedding` 反复重启，日志报 `config.json not found` | 模型目录为空或下载未完成 | 按第 5 步重新下载，确认 `config.json` 与 `pytorch_model.bin` 存在 |
+| 请求 `8081/health` 无响应 | TEI 正在预热模型 | 等待 1~2 分钟，返回 `200` 后再继续 |
+| LLM 调用返回 `Model disabled` | 配置的模型已被上游下线 | 用 `GET /v1/models` 查可用模型，修改 `model_name` |
+| `uv sync` 长时间无进展 | 环境变量 `HTTP_PROXY` 劫持了下载 | 清除代理变量后重试，或改用国内镜像源 |
+| 问数结果为空或字段选错 | 元数据知识库未构建 | 执行第 7 步，并确认 MySQL、Qdrant、Elasticsearch 三处均有数据 |
 
 <a id="tutorials"></a>
 
@@ -333,8 +374,29 @@ git checkout main
 - 监控告警、链路追踪平台和灰度发布
 - 更复杂的多轮问数记忆、追问改写和会话管理
 
-这些能力适合在基础流程跑通之后继续扩展。`shopkeeper-agent` 更适合承担一个清晰角色：先把智能问数最关键、最必要、最值得学习的工程链路讲清楚、跑起来，并为后续扩展企业级能力打基础。
+这些能力适合在基础流程跑通之后继续扩展。`qi-bao-nl2sql-agent` 更适合承担一个清晰角色：先把智能问数最关键、最必要、最值得学习的工程链路讲清楚、跑起来，并为后续扩展企业级能力打基础。
 
-## ⭐ Star History
+## ⚠️ 安全提示
 
-![Star History Chart](https://api.star-history.com/image?repos=didilili/shopkeeper-agent&type=date&legend=top-left)
+本项目会执行大模型生成的 SQL，仅适用于本地教学与演示环境：
+
+- `run_sql` 节点直接执行模型生成的语句，未内置 SQL 白名单与权限审计。
+- 数据库仅绑定本地端口，未开启认证与加密传输。
+- 默认口令为公开的占位值，请勿用于任何可被外部访问的环境。
+
+<a id="license"></a>
+
+## 📄 来源与许可
+
+本项目采用 [MIT License](LICENSE)。
+
+- 初始版本与项目思路来源于 [ai-agents-from-zero](https://github.com/didilili/ai-agents-from-zero) 的「实战项目-电商问数」，业务原型参考尚硅谷「大模型智能体掌柜问数」课程。
+- 依据 MIT 协议，原始版权声明（`Copyright (c) 2026 didilili`）已在 [LICENSE](LICENSE) 中完整保留，本仓库的修改同样以 MIT 协议发布。
+- `docker/elasticsearch/plugins/elasticsearch-analysis-ik-8.19.10.zip` 为 [elasticsearch-analysis-ik](https://github.com/infinilabs/analysis-ik) 中文分词插件，遵循 Apache-2.0 协议。
+
+## 🙏 致谢
+
+- [LangGraph](https://github.com/langchain-ai/langgraph) / [LangChain](https://github.com/langchain-ai/langchain)：智能体编排与模型接入
+- [Qdrant](https://github.com/qdrant/qdrant) / [Elasticsearch](https://github.com/elastic/elasticsearch)：向量检索与全文检索
+- [Text Embeddings Inference](https://github.com/huggingface/text-embeddings-inference) / [BAAI/bge-large-zh-v1.5](https://huggingface.co/BAAI/bge-large-zh-v1.5)：嵌入服务与中文向量模型
+- [FastAPI](https://github.com/fastapi/fastapi) / [Vite](https://github.com/vitejs/vite)：后端接口与前端构建
